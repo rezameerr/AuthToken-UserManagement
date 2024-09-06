@@ -186,7 +186,7 @@ module.exports = class AuthMgnt {
                     } else {
                         if (this.validateAuthToken(authToken)) {
                             res.setHeader('Authorization', 
-                                this.slideAuthTokenExpiration(authToken, Utils.getUTCDateTimestamp(0, 0, 0, 0), Utils.getUTCDateTimestamp(365, 0, 0, 0)));
+                                this.slideAuthTokenExpiration(authToken, Utils.getUTCDateTimestamp(0, 0, 0, 0), Utils.getUTCDateTimestamp(0, 0, 20, 0))); // Slide 20 mins
                             return next();
                         } else {
                             return res.status(403).send();
